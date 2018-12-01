@@ -101,24 +101,26 @@ void loop()
 ### BCD and RAW decode modes
 
 When in BCD mode (achieved by calling `setDecodeMode(MAX_MODE_BCD)`), the bytes written to the digits are interpreted by the display as numbers. So, a 0 will display a 0, 1 will display a 1, and so on. There are a few other special characters that can be used in BCD mode as well.
-|Character|Value|
-|--|--|
-|0|`0x0`|
-|1|`0x1`|
-|2|`0x2`|
-|3|`0x3`|
-|4|`0x4`|
-|5|`0x5`|
-|6|`0x6`|
-|7|`0x7`|
-|8|`0x8`|
-|9|`0x9`|
-|-|`0xA`|
-|E|`0xB`|
-|H|`0xC`|
-|L|`0xD`|
-|P|`0xE`|
-|*blank*|`0xF`|
+```
+Value     Character
+-------------------
+0x0       0
+0x1       1
+0x2       2
+0x3       3
+0x4       4
+0x5       5
+0x6       6
+0x7       7
+0x8       8
+0x9       9
+0xA       -
+0xB       E
+0xC       H
+0xD       L
+0xE       P
+0xF       (blank)
+```
 
 When in RAW mode (achieved by calling `setDecodeMode(MAX_MODE_RAW)`), the individual segments of each digit can be controlled directly. Each bit in the byte written to the digit controls one of the digit's 8 segments:
 ![Chart of segments](https://i.imgur.com/IkFAebV.png)
