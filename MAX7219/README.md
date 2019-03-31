@@ -28,7 +28,7 @@ This is a simple library for displaying numbers on a 7-segment display that is b
 
 `void MAX7219::writeDigitRaw(uint8_t digit,uint8_t data)` - Sets the contents of a single digit as a raw 'bitmap' of the segments.
 
-`void MAX7219::writeDigitNumber(uint8_t digit,uint8_t num)` - Displays a single decimal/hexadecimal digit (`num` can be between 0-15).
+`void MAX7219::writeDigitNumber(uint8_t digit,uint8_t num)` - Displays a single decimal/hexidecimal digit (`num` can be between 0-15).
 
 `void MAX7219::setDecimalPoint(uint8_t digit)` - Turns on the decimal point of a specific digit.
 
@@ -49,8 +49,6 @@ This is a simple library for displaying numbers on a 7-segment display that is b
 `MAX_CHAR_BLANK` - Blanks the digit it's written to
 
 `MAX_CHAR_DECIMALPOINT` - Turns on only the decimal point of the digit it's written to
-
-`MAX_NUMBERS[]` - An array containing the 16 hexadecimal digit characters that the `writeDigitNumber` function uses
 
 ##### Internal registers (use with `writeRegister   ` function)
 
