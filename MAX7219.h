@@ -12,12 +12,12 @@
 #define MAX_REG_SCANLIMIT 0x0B
 #define MAX_REG_ENABLED 0x0C
 #define MAX_REG_LAMPTEST 0x0F
-#define MAX_MODE_BCD 0xFF
-#define MAX_MODE_RAW 0x00
-#define MAX_CHAR_ZERO 0
-#define MAX_CHAR_DASH 10
-#define MAX_CHAR_BLANK 15
+#define MAX_CHAR_DASH 0b00000001
+#define MAX_CHAR_UNDERSCORE 0b00001000
+#define MAX_CHAR_BLANK 0
 #define MAX_CHAR_DECIMALPOINT 128
+
+const uint8_t MAX_NUMBERS[16] = {0b01111110,0b00110000,0b01101101,0b01111001,0b00110011,0b01011011,0b01011111,0b01110000,0b01111111,0b01111011,0b01110111,0b00011111,0b01001110,0b00111101,0b01001111,0b01000111};
 
 class MAX7219
 {
@@ -26,10 +26,10 @@ class MAX7219
 		void init();
 		void writeRegister(uint8_t address,uint8_t value);
 		void setBrightness(uint8_t brightness);
-		void setDecodeMode(uint8_t mode);
 		void updateDisplay();
 		void fillDisplay(uint8_t data);
-		void writeDigit(uint8_t digit,uint8_t data);
+		void writeDigitRaw(uint8_t digit,uint8_t data);
+		void writeDigitNumber(uint8_t digit,uint8_t num);
 		void setDecimalPoint(uint8_t digit);
 		uint8_t readDigit(uint8_t digit);
 		void writeLong(unsigned long num,uint8_t padding_char);
